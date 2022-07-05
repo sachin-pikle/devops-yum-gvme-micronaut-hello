@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: mn-hello
+    name: mnHelloRest
 netty:
   default:
     allocator:

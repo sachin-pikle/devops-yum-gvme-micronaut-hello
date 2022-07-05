@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>example.micronaut</groupId>
-  <artifactId>mn-hello</artifactId>
+  <groupId>com.example</groupId>
+  <artifactId>MnHelloRest</artifactId>
   <version>0.1</version>
   <packaging>${packaging}</packaging>
 
   <parent>
     <groupId>io.micronaut</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>3.5.0</version>
+    <version>3.5.2</version>
   </parent>
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
-    <micronaut.version>3.5.0</micronaut.version>
-    <exec.mainClass>example.micronaut.Application</exec.mainClass>
+    <jdk.version>17</jdk.version>
+    <release.version>17</release.version>
+    <micronaut.version>3.5.2</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
+    <exec.mainClass>com.example.Application</exec.mainClass>
   </properties>
 
   <repositories>
@@ -71,11 +71,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-runtime</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
       <groupId>jakarta.annotation</groupId>
       <artifactId>jakarta.annotation-api</artifactId>
       <scope>compile</scope>
@@ -100,6 +95,7 @@
         <configuration>
           <buildArgs combine.children="append">
             <buildArg>-H:+ReportExceptionStackTraces</buildArg>
+            <!-- For mostly static native image (only on Linux AMD64 systems) -->
             <buildArg>-H:+StaticExecutableWithDynamicLibC</buildArg>
             <buildArg>--verbose</buildArg>
             <!-- For Quick Build (22.1+) -->
@@ -123,8 +119,8 @@
             </path>
           </annotationProcessorPaths>
           <compilerArgs>
-            <arg>-Amicronaut.processing.group=example.micronaut</arg>
-            <arg>-Amicronaut.processing.module=micronautguide</arg>
+            <arg>-Amicronaut.processing.group=com.example</arg>
+            <arg>-Amicronaut.processing.module=MnHelloRest</arg>
           </compilerArgs>
         </configuration>
       </plugin>
