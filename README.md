@@ -126,10 +126,10 @@ Here's the complete [build specification](build_spec.yaml) file.
 
     ```shell
     ...
-    EXEC: ======================================================================
+    EXEC: ==================================================================
     EXEC: GraalVM Native Image: Generating 'MnHelloRest' (static executable)...
-    EXEC: ======================================================================
-    EXEC: [1/7] Initializing...                     (6.8s @ 0.27GB)   
+    EXEC: ==================================================================
+    EXEC: [1/7] Initializing...                         (6.8s @ 0.27GB)   
     EXEC:  Version info: 'GraalVM 22.1.0.1 Java 17 EE'   
     EXEC:  C compiler: gcc (redhat, x86_64, 4.8.5)   
     EXEC:  Garbage collector: Serial GC   
@@ -162,7 +162,7 @@ Here's the complete [build specification](build_spec.yaml) file.
     EXEC: Produced artifacts:   
     EXEC:  /workspace/mn-hello/target/MnHelloRest (executable)   
     EXEC:  /workspace/mn-hello/target/MnHelloRest.build_artifacts.txt   
-    EXEC: ======================================================================
+    EXEC: ==================================================================
     EXEC: Finished generating 'MnHelloRest' in 3m 57s.   
     ...
     ```
