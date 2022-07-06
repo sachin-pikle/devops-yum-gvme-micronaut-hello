@@ -12,7 +12,7 @@ env:
     # PATH is a reserved variable and cannot be defined as a variable.
     # However, PATH can be changed in a build step and the change is visible in subsequent steps.
     TAG: "mn-hello-ni:0.0.1"
-    APP_FILE: "mn-hello"
+    APP_FILE: "MnHelloRest"
 
   # exportedVariables are made available to use as parameters in sucessor Build Pipeline stages
   # For this Build to run, the Build Pipeline needs to have a BUILDRUN_HASH parameter set
@@ -28,7 +28,7 @@ steps:
       export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BUILDRUN_HASH: " $BUILDRUN_HASH
   - type: Command
-    name: "Install the latest GraalVM Enterprise 22.x Java 17 - JDK and Native Image"
+    name: "Install the latest GraalVM Enterprise 22.x for Java 17 - JDK and Native Image"
     command: |
       yum -y install graalvm22-ee-17-native-image
   - type: Command
@@ -51,7 +51,7 @@ steps:
       echo "Current dir: $(pwd)"
       printf "Current dir contents:\n $(ls -alh)"  
   # - type: Command
-  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x Java 17 - JDK"
+  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x for Java 17 - JDK"
   #   command: |
   #     ./mvnw --no-transfer-progress clean package
   # - type: Command
@@ -59,7 +59,7 @@ steps:
   #   command: |
   #     ./mvnw clean
   - type: Command
-    name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x Java 17 - Native Image"
+    name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
     command: |
       ./mvnw --no-transfer-progress clean package -Dpackaging=native-image
   - type: Command
@@ -78,12 +78,12 @@ steps:
       echo "List of docker images:"
       echo "$(docker images)"  
 outputArtifacts:
-  - name: app_jar
-    type: BINARY
-    location: target/mn-hello-0.1.jar
+  # - name: app_jar
+  #   type: BINARY
+  #   location: target/MnHelloRest-0.1.jar
   - name: app_native_executable
     type: BINARY
-    location: target/mn-hello
+    location: target/MnHelloRest
   - name: runtime_image
     type: DOCKER_IMAGE
     # this is only the locally exported container image name

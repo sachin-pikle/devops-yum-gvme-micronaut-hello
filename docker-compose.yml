@@ -5,7 +5,7 @@ services:
   mn-hello-ni:
   ### OCI DevOps Build Pipelines
   ### Don't forget to replace the tag after running the build pipeline
-    image: phx.ocir.io/oracledeveloper/ssp-mn/mn-hello-ni:qjp4wll
+    image: phx.ocir.io/oracledeveloper/ssp-mn/mn-hello-ni:qoaotci
 #    restart: 
     mem_limit: 128m
     memswap_limit: 128m
