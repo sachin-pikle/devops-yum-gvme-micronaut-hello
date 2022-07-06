@@ -9,7 +9,7 @@ env:
     # PATH is a reserved variable and cannot be defined as a variable.
     # However, PATH can be changed in a build step and the change is visible in subsequent steps.
     TAG: "mn-hello-ni:0.0.1"
-    APP_FILE: "mn-hello"
+    APP_FILE: "MnHelloRest"
 
   # exportedVariables are made available to use as parameters in sucessor Build Pipeline stages
   # For this Build to run, the Build Pipeline needs to have a BUILDRUN_HASH parameter set
@@ -49,10 +49,10 @@ steps:
 outputArtifacts:
   # - name: app_jar
   #   type: BINARY
-  #   location: target/mn-hello-0.1.jar
+  #   location: target/MnHelloRest-0.1.jar
   - name: app_native_executable
     type: BINARY
-    location: target/mn-hello
+    location: target/MnHelloRest
   - name: runtime_image
     type: DOCKER_IMAGE
     # this is only the locally exported container image name
