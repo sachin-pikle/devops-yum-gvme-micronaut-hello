@@ -25,7 +25,7 @@ steps:
       export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BUILDRUN_HASH: " $BUILDRUN_HASH
   - type: Command
-    name: "Install the latest GraalVM Enterprise 22.x Java 17 - JDK and Native Image"
+    name: "Install the latest GraalVM Enterprise 22.x for Java 17 - JDK and Native Image"
     command: |
       yum -y install graalvm22-ee-17-native-image
   - type: Command
@@ -33,11 +33,11 @@ steps:
     command: |
       export PATH=$JAVA_HOME/bin:$PATH
   # - type: Command
-  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x Java 17 - JDK"
+  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x for Java 17 - JDK"
   #   command: |
   #     ./mvnw --no-transfer-progress clean package
   - type: Command
-    name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x Java 17 - Native Image"
+    name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
     command: |
       ./mvnw --no-transfer-progress package -Dpackaging=native-image
   - type: Command
@@ -47,9 +47,9 @@ steps:
                   --build-arg APP_FILE=${APP_FILE} \
                   -t ${TAG} .
 outputArtifacts:
-  - name: app_jar
-    type: BINARY
-    location: target/mn-hello-0.1.jar
+  # - name: app_jar
+  #   type: BINARY
+  #   location: target/mn-hello-0.1.jar
   - name: app_native_executable
     type: BINARY
     location: target/mn-hello
