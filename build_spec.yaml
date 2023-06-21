@@ -5,7 +5,7 @@ runAs: root
 shell: bash
 env:
   variables:
-    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm22-ee-java17"
+    "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java17"
     # PATH is a reserved variable and cannot be defined as a variable.
     # However, PATH can be changed in a build step and the change is visible in subsequent steps.
     TAG: "mn-hello-ni:0.0.1"
@@ -25,19 +25,19 @@ steps:
       export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BUILDRUN_HASH: " $BUILDRUN_HASH
   - type: Command
-    name: "Install the latest GraalVM Enterprise 22.x for Java 17 - JDK and Native Image"
+    name: "Install the latest Oracle GraalVM for JDK 17 - JDK and Native Image"
     command: |
-      yum -y install graalvm22-ee-17-native-image
+      yum -y install graalvm-17-native-image
   - type: Command
     name: "Set the PATH here. JAVA_HOME already set in env > variables above."
     command: |
       export PATH=$JAVA_HOME/bin:$PATH
   # - type: Command
-  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x for Java 17 - JDK"
+  #   name: "Example 1: Build a JAR with Oracle GraalVM for JDK 17 - JDK"
   #   command: |
   #     ./mvnw --no-transfer-progress clean package
   - type: Command
-    name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
+    name: "Example 2: Build a native executable with Oracle GraalVM for JDK 17 - Native Image"
     command: |
       ./mvnw --no-transfer-progress package -Dpackaging=native-image
   - type: Command

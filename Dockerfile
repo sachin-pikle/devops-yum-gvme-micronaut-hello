@@ -7,7 +7,7 @@
 # Linux glibc-based distribution like "gcr.io/distroless/base". 
 # The application runtime image size is only 82.5 MB.
 # 
-# Reference: https://www.graalvm.org/22.1/reference-manual/native-image/StaticImages/#build-mostly-static-native-image
+# Reference: https://docs.oracle.com/en/graalvm/jdk/17/docs/reference-manual/native-image/guides/build-static-executables/#build-a-mostly-static-native-executable
 #
 
 ## Begin: Option 1
